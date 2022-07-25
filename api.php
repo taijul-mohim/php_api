@@ -8,15 +8,12 @@ switch ($REQ) {
         getmethod();
         break;
         case 'POST':
-            echo '{"name": "post ... taijul"}';
+            postmethod();
             break;
             case 'PUT':
                 echo '{"name":  "put ... mohim"}';
                 break;
-              
-                
-                   
-                            
+                                         
     default:
     echo '{"name":  "data cant found"}';
         break;
@@ -38,7 +35,9 @@ function getmethod(){
      }
 }
 
+function  postmethod(){
 
+}
 
 
 ?>
