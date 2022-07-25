@@ -1,5 +1,5 @@
 <?php
-
+include("db.php");
 header("content-type: apllocation/json");
 $REQ=$_SERVER['REQUEST_METHOD'];
 
