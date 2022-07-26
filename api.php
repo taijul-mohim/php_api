@@ -13,14 +13,11 @@ switch ($REQ) {
             break;
             case 'PUT':
                 echo '{"name":  "put ... mohim"}';
-                break;
-                                         
+                break;                                     
     default:
     echo '{"name":  "data cant found"}';
         break;
 }
-
-
 function getmethod(){
     global $con;
     $querry="SELECT  * FROM new ";
@@ -38,14 +35,17 @@ function getmethod(){
 
 function  postmethod($data){
     global $con;
-    // $name=$data["name"];
-    // $email=$data["email"];
-    // $sqli="INSERT INTO new(name,email,create)VALUES('$name','$email',NOW())";
-    //  $querry=mysqli_query($con,$sqli);
-    //  if($querry){
-    //     echo '{"result" : "data insert"}';
-    //  }
-    echo '{"result" :"done"}';
+$name=$data['name'];
+$email=$data['email'];
+
+$sql="INSERT INTO new(name,email)VALUES('$name','$email')";
+if(mysqli_query($con , $sql)){
+    echo '{"result" : "done"}';
+}else{
+    echo '{"result" : "not done"}';
+}
+
+ 
 }
 
 
