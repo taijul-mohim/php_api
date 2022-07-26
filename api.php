@@ -8,7 +8,8 @@ switch ($REQ) {
         getmethod();
         break;
         case 'POST':
-            postmethod();
+            $data=json_decode(file_get_contents('php://input'),true);
+            postmethod($data);
             break;
             case 'PUT':
                 echo '{"name":  "put ... mohim"}';
@@ -35,8 +36,16 @@ function getmethod(){
      }
 }
 
-function  postmethod(){
-
+function  postmethod($data){
+    global $con;
+    // $name=$data["name"];
+    // $email=$data["email"];
+    // $sqli="INSERT INTO new(name,email,create)VALUES('$name','$email',NOW())";
+    //  $querry=mysqli_query($con,$sqli);
+    //  if($querry){
+    //     echo '{"result" : "data insert"}';
+    //  }
+    echo '{"result" :"done"}';
 }
 
 
