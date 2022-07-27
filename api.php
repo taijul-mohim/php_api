@@ -12,7 +12,7 @@ switch ($REQ) {
             postmethod($data);
             break;
             case 'PUT':
-                echo '{"name":  "put ... mohim"}';
+                putmethod();
                 break;                                     
     default:
     echo '{"name":  "data cant found"}';
@@ -47,6 +47,9 @@ if(mysqli_query($con , $sql)){
 
  
 }
+ function putmethod(){
+    
+ }
 
 
 ?>
