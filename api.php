@@ -12,8 +12,13 @@ switch ($REQ) {
             postmethod($data);
             break;
             case 'PUT':
-                putmethod();
-                break;                                     
+                $data=json_decode(file_get_contents('php://input'),true);
+                putmethod($data);
+                break;  
+                case 'DELETE':
+                    $data=json_decode(file_get_contents('php://input'),true);
+                deletemethod($data);
+                    break;                                        
     default:
     echo '{"name":  "data cant found"}';
         break;
@@ -47,8 +52,37 @@ if(mysqli_query($con , $sql)){
 
  
 }
- function putmethod(){
+
+
+
+ function putmethod($data){
+    global $con;
+    $id=$data['id'];
+    $name=$data['name'];
+    $email=$data['email'];
+    $sql="UPDATE new SET name='$name',email='$email' WHERE id='$id' ";
+if(mysqli_query($con , $sql)){
+    echo '{"result" : "done"}';
+}else{
+    echo '{"result" : "not done"}';
+}
     
+    
+    
+ }
+
+
+
+ function  deletemethod($data){
+    global $con;
+    $id=$data['id'];
+    $sql="DELETE FROM new WHERE id='$id' ";
+    if(mysqli_query($con , $sql)){
+        echo '{"result" : "DELETE successfully"}';
+    }else{
+        echo '{"result" : "not done"}';
+    }
+
  }
 
 
